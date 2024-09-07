@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% block duty_heading %}
+<div class="text-center">
+    <h1>Add your duties below</h1>
+</div>
+       {% endblock %}
+<div class='row'>
+    <div class='col-12 col-md-8 mx-auto'>
+        <h2>Add Duty</h2>
+        <form method="POST" action="{{ url_for('add_duty') }}">
+            <!-- title -->
+            <div class="row">
+                <div class="input-field col"> 
+                    <label for="task_name">Task Name</label>
+                    <input id="title" name="title" minlength="2" maxlength="50" type="text" required>
+                
+                </div>
+            </div>
+            <!-- description -->
+            <div class="row">
+                <div class="input-field col">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" minlength="2" maxlength="200" required></textarea>
+                </div>
+            </div>
+           
+            <!-- button to submit -->
+            <button type="submit" class="btn btn-success">Add Duty</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
