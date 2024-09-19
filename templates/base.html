@@ -22,59 +22,47 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        
     <!-- Custom Styles -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reset.css') }}">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-light bg-light fixed-top">
+    <!-- Top navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Office-Duties</span>
-            <!-- user is loggin in -->
-            {% if 'user' in session %}
-            <!-- Show logout button when user is logged in -->
-            <a href="{{ url_for('logout') }}" class="btn btn-warning">Logout</a>
-        {% else %}
-            <!-- Show login button when no user is logged in -->
-            <a href="{{ url_for('login') }}" class="btn btn-wanring">Login</a>
-        {% endif %}
-    </div>       
-    </nav>
-<header> 
-       <!-- Content outside of the container -->
-       {% block outside_container %}
-       {% endblock %}
-</header>
-    <!-- main content -->
-     <main class="container text text-center">
-         {% if 'user' in session %}
-         <!-- user is logged in -->
-         <h3>Welcome, {{ session['user'] }}</h3>
-         <a href="{{ url_for('add_duty') }}">Add Duty</a>
-     {% else %}
-    
-       <!-- flash-banner -->
-       <div class="flash-banner">
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="row flashes">
-            <h4 class="center-align">{{ message }}</h4>
+            <a class="navbar-brand" href="{{ url_for('home') }}">
+                <h1>Office-Duties</h1>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form action="{{ url_for('logout') }}">
+                            <button class="btn btn-dark" type="submit">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </div>
-        {% endfor %}
-        {% endif %}
-        {% endwith %}
-    </div>
-<!-- user is logged out -->
-<h4>Welcome to your office-dutty friend!</h4>
-{% endif %}
-{% block content %}
-         {% endblock%}
-     </main>
-     
+    </nav>
+<!-- Main content -->
+ <main class="text-center">
+     <!-- Flash messages -->
+     <div class="flash-banner">
+         {% with messages = get_flashed_messages() %}
+         {% if messages %}
+         {% for message in messages %}
+         <div class="alert alert-info" role="alert">{{ message }}</div>
+         {% endfor %}
+         {% endif %}
+         {% endwith %}
+     </div>
+ 
+     {% block content %}
+     {% endblock %}
+ </main>
 <!-- JavaScripts -->
 <script src="/static/js/main.js"></script>
 
