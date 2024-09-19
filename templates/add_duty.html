@@ -1,35 +1,44 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% block duty_heading %}
-<div class="text-center">
-    <h1>Add your duties below</h1>
+<!-- Bottom navbar -->
+<div class="d-flex justify-content-center align-items-center">
+    <ul class="navbar-nav flex-row">
+        {% if 'user' in session %}
+        <li class="nav-item">
+            <a class="nav-link me-3" href="{{ url_for('home') }}">My Duties</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link me-3" href="{{ url_for('add_duty') }}">Add Duty</a>
+        </li>
+        {% endif %}
+    </ul>
 </div>
-       {% endblock %}
-<div class='row'>
-    <div class='col-12 col-md-8 mx-auto'>
-        <h2>Add Duty</h2>
-        <form method="POST" action="{{ url_for('add_duty') }}">
-            <!-- title -->
-            <div class="row">
-                <div class="input-field col"> 
-                    <label for="task_name">Task Name</label>
-                    <input id="title" name="title" minlength="2" maxlength="50" type="text" required>
-                
-                </div>
+<!-- Main content -->
+<div class="row">
+    <div class="col-12 col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Add Duty</h2>
+                <form method="POST" action="{{ url_for('add_duty') }}">
+                    <!-- Duty Title -->
+                    <div class="form-group">
+                        <label for="title">Duty:</label>
+                        <input id="title" name="title" minlength="2" maxlength="50" type="text" class="form-control" required>
+                    </div>
+
+                    <!-- Duty Description -->
+                    <div class="form-group mt-3">
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" minlength="2" maxlength="200" class="form-control" rows="4" required></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-dark mt-3">Add Duty</button>
+                </form>
             </div>
-            <!-- description -->
-            <div class="row">
-                <div class="input-field col">
-                    <label for="description">Description</label>
-                    <textarea id="description" name="description" minlength="2" maxlength="200" required></textarea>
-                </div>
-            </div>
-           
-            <!-- button to submit -->
-            <button type="submit" class="btn btn-success">Add Duty</button>
-        </form>
+        </div>
     </div>
 </div>
+
 
 {% endblock %}
