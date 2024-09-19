@@ -1,24 +1,24 @@
-/* Array of motivational quotes */
-var quotes = [
-    "Believe in yourself and all that you are.",
-    "The only way to achieve the impossible is to believe it is possible.",
-    "Success is not the key to happiness. Happiness is the key to success.",
-    "Don't watch the clock; do what it does. Keep going.",
-    "You are never too old to set another goal or to dream a new dream.",
-    "Start where you are. Use what you have. Do what you can."
-  ];
-  
-  function changeTitle() {
-    var titleElement = document.querySelector('h1');
-    var randomIndex = Math.floor(Math.random() * quotes.length);
-    titleElement.textContent = quotes[randomIndex];
-}
+    // Array of motivational quotes
+    var quotes = [
+        "Believe in yourself and all that you are.",
+        "The only way to achieve the impossible is to believe it is possible.",
+        "Success is not the key to happiness. Happiness is the key to success.",
+        "Don't watch the clock; do what it does. Keep going.",
+        "You are never too old to set another goal or to dream a new dream.",
+        "Start where you are. Use what you have. Do what you can."
+    ];
 
-// Change the title every 5 seconds
-setInterval(changeTitle, 5000);
-changeTitle();
+    function changeTitle() {
+        var titleElement = document.querySelector('#motivational-header');
+        var randomIndex = Math.floor(Math.random() * quotes.length);
+        titleElement.textContent = quotes[randomIndex];
+    }
 
-// Todo List
+    // Change the title every 5 seconds
+    setInterval(changeTitle, 5000);
+    changeTitle();
+
+// Todo List Logic
 var data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
     todo: [],
     completed: []
@@ -121,3 +121,40 @@ function addItemToDOM(text, completed) {
     item.appendChild(buttons);
     list.insertBefore(item, list.childNodes[0]);
 }
+
+// Confetti and Duty Completion Logic
+document.addEventListener('DOMContentLoaded', function() {
+    const completedButton = document.querySelectorAll('#completed-button');
+
+    completedButton.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent form submission to handle DOM manipulation first
+            const form = button.closest('form');
+            const dutyId = form.closest('li').id; // Get the duty ID from the list item
+            const dutyElement = document.getElementById(dutyId); // Get the entire duty element
+            
+            // Move duty to the "Completed" section
+            const completedDutiesList = document.getElementById('completed-duties');
+            completedDutiesList.appendChild(dutyElement);
+
+            // Update the duty's content to mark it as completed
+            dutyElement.querySelector('.duty-display').textContent = dutyElement.querySelector('.duty-display').textContent.replace('Not Completed', 'Completed');
+
+            // Remove the "Completed" button to prevent it from being clicked again
+            form.remove();
+
+            // Trigger confetti animation
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+
+            // Optionally, you can trigger the backend update now via AJAX or submit the form after a delay.
+            setTimeout(function() {
+                form.submit(); // This will still send the data to the server
+            }, 300); // Adjust delay if needed
+        });
+    });
+});
+
