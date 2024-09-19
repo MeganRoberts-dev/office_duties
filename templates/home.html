@@ -1,22 +1,83 @@
 {% extends 'base.html' %}
 {% block content %}
-
-{% block outside_container %}
-   <!-- inspiting quotes -->
-<div class="text-center">
-    <h1></h1>
+<div class="main-container">
+  <!-- Motivational header -->
+  {% if 'user' in session %}
+  <h2>Welcome, {{ session['user'] }}!</h2>
+  <h3 id="motivational-header" class="motivational-header"></h3>
+  {% endif %}
+  <!-- Bottom navbar -->
+  <div class="d-flex justify-content-center align-items-center">
+    <ul class="navbar-nav flex-row">
+        {% if 'user' in session %}
+        <li class="nav-item">
+            <a class="nav-link me-3" href="{{ url_for('home') }}">My Duties</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link me-3" href="{{ url_for('add_duty') }}">Add Duty</a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link me-3" href="{{ url_for('login') }}">Log In</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('register') }}">Sign Up</a>
+        </li>
+        {% endif %}
+    </ul>
 </div>
-{% endblock %}
+ <!-- Incomplete Duties Section -->
+<div class="row">
+    <div class="col">
+        <div class="container mt-3">
+            <h4>Incomplete Duties</h4>
+            <div class="duties-container">
+            <ul id="incomplete-duties">
+                {% for duty in duties %}
+                {% if not duty.completed %}
+                <li id="duty-{{ duty._id }}">
+                    <span class="duty-display">
+                        {{ duty.title }} - {{ duty.description }} 
+                    </span>
+                    <!-- Completed button -->
+                    <form action="{{ url_for('complete_duty', duty_id=duty._id) }}" method="POST"
+                        style="display:inline;" class="complete-form">
+                        <button type="submit" class="btn btn-success btn-sm ml-2"
+                            id="completed-button">Completed</button>
+                    </form>
+                    <!-- Edit Button -->
+                    <a href="{{ url_for('edit_duty', duty_id=duty._id) }}" style="display:inline;" class="btn btn-primary btn-sm ml-2">Edit</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="container mt-3">
+            <!-- Completed Duties Section -->
+            <h4>Completed Duties</h4>
+            <ul id="completed-duties">
+                {% for duty in duties %}
+                {% if duty.completed %}
+                <li id="duty-{{ duty._id }}">
+                    <span class="duty-display">
+                        {{ duty.title }} - {{ duty.description }} - 
+                    </span>
+                    <!-- Delete Button-->
 
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                {{ duty.title }}
+                                <form action="{{ url_for('delete_duty', duty_id=duty._id) }}" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                </form>
+                            </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
-    <div class='row'>
-        <div class='col-12 col-md-8 mx-auto'>
-            <div class='card'>
-                <ul>
-                    {% for duty in duties %}
-                        <li>{{ duty.title }} - {{ duty.description }} - {% if duty.completed %}Completed{% else %}Not Completed{% endif %}</li>
-                    {% endfor %}
-                </ul>
-            </div>
 
 {% endblock %}
