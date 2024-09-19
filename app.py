@@ -19,10 +19,27 @@ mongo = PyMongo(app)
 @app.route('/')
 def home():
     if 'user' in session:
-        user = mongo.db.users.find_one({"username": session["user"]})["_id"] 
+        user = mongo.db.users.find_one({"username": session["user"]})["_id"]
         duties = list(mongo.db.duties.find({"owner": user}))
         return render_template('home.html', duties=duties)
     return redirect(url_for('login'))
+
+@app.route('/add_duty', methods=['GET', 'POST'])
+def add_duty():
+    if request.method == 'POST':
+        user_id = mongo.db.users.find_one({'username': session['user']})['_id']
+        completed = True if request.form.get('completed') else False
+        duty = {
+            'title': request.form.get('title'),
+            'description': request.form.get('description'),
+            'completed': completed,
+            'owner': ObjectId(user_id)
+        }
+        mongo.db.duties.insert_one(duty)
+        flash('Duty Successfully Added', 'info')
+        return redirect(url_for('home'))
+
+    return render_template('add_duty.html')
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -53,25 +70,23 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # check if username exists in db
-        existing_user = mongo.db.users.find_one(
-            {'username': request.form.get('username').lower()})
+        username = request.form.get('username').lower()
+        password = request.form.get('password')
+
+        # Check if username exists in DB
+        existing_user = mongo.db.users.find_one({'username': username})
 
         if existing_user:
-            # ensure hashed password matches user input
-            if check_password_hash(existing_user['password'], request.form.get('password')):  # noqa
-                    session['user'] = request.form.get('username').lower()  # noqa
-                    flash('Welcome, {}'.format(request.form.get('username')))  # noqa
-                    return redirect(url_for('profile', username=session['user']))  # noqa
+            # Verify password
+            if check_password_hash(existing_user['password'], password):
+                session['user'] = username
+                return redirect(url_for('home'))  # Redirect to home after login
             else:
-                # invalid password match
                 flash('Incorrect Username and/or Password', 'danger')
-                return redirect(url_for('login'))
-
         else:
-            # username doesn't exist
             flash('Incorrect Username and/or Password', 'danger')
-            return redirect(url_for('login'))
+
+        return redirect(url_for('login'))
 
     return render_template('login.html')
 
@@ -95,37 +110,44 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/add_duty', methods=['GET', 'POST'])
-def add_duty():
+
+@app.route('/edit/<duty_id>', methods=['GET', 'POST'])
+def edit_duty(duty_id):
     if request.method == 'POST':
-        user_id = mongo.db.users.find_one({'username': session['user']})['_id']
         completed = True if request.form.get('completed') else False
-        duty = {
+        update_data = {
             'title': request.form.get('title'),
             'description': request.form.get('description'),
-            'completed': completed,
-            'owner': ObjectId(user_id)
+            'completed': completed
         }
-        mongo.db.duties.insert_one(duty)
-        flash('Duties Successfully Added', 'info')
+        mongo.db.duties.update_one({"_id": ObjectId(duty_id)}, {"$set": update_data})
+        flash('Duty Updated Successfully', 'success')
         return redirect(url_for('home'))
+    
+    duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
+    return render_template('edit_duty.html', duty=duty)
 
-    return render_template('add_duty.html')
-
-
-@app.route('/delete_task/<task_id>')
-def delete_task(task_id):
-    mongo.db.tasks.delete_one({"_id": ObjectId(task_id)})
-    flash('Task deleted!', 'info')
+@app.route('/delete_duty/<duty_id>', methods=['POST'])
+def delete_duty(duty_id):
+    if 'user' in session:
+        mongo.db.duties.delete_one({"_id": ObjectId(duty_id)})
+        flash('Duty deleted successfully', 'info')
+    else:
+        flash('You need to be logged in to delete a duty', 'danger')
     return redirect(url_for('home'))
 
 
-@app.route('/complete_task/<task_id>')
-def complete_task(task_id):
-    task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
-    if task:
-        mongo.db.tasks.update_one({"_id": ObjectId(task_id)}, {"$set": {"completed": not task.get("completed", False)}})
-    return redirect(url_for('home'))
+
+@app.route('/complete_duty/<duty_id>', methods=['POST'])
+def complete_duty(duty_id):
+    if request.method == 'POST':
+        # Mark the duty as completed in the database
+        mongo.db.duties.update_one(
+            {'_id': ObjectId(duty_id)},
+            {'$set': {'completed': True}}
+        )
+        flash('Duty marked as completed!', 'success')
+        return redirect(url_for('home'))
 
 
 if __name__ == '__main__':
