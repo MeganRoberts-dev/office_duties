@@ -110,7 +110,6 @@ def logout():
     return redirect(url_for('login'))
 
 
-
 @app.route('/edit/<duty_id>', methods=['GET', 'POST'])
 def edit_duty(duty_id):
     if request.method == 'POST':
@@ -131,7 +130,6 @@ def edit_duty(duty_id):
 def delete_duty(duty_id):
     if 'user' in session:
         mongo.db.duties.delete_one({"_id": ObjectId(duty_id)})
-        flash('Duty deleted successfully', 'info')
     else:
         flash('You need to be logged in to delete a duty', 'danger')
     return redirect(url_for('home'))
