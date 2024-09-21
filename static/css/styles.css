@@ -6,7 +6,12 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100%;
-  background-color: blue;
+  background: url(../img/soft-background.png);
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  height: 100vh; 
+  width: 100%;
 }
 
 body::before {
@@ -29,36 +34,72 @@ input, button {
 .noFill {
   fill: none;
 }
-/* Flash message */ 
-.flashes h4 {
-  line-height: 2;
+.btn {
+  margin: 5px;
 }
+/* Flash message */ 
+.flash-banner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  font-size: 2rem;
+  text-align: center;
+  color: black; /* You can change the color to anything you prefer */
+  pointer-events: none; /* Disable interaction */
+}
+
+.flash-message {
+  background-color: transparent; /* No background color */
+  padding: 10px;
+}
+
 /* Containers */
 .container {
     max-width: 550px;
     width: 100%;
     background-color: #ffffff;
-    border-radius: 5px; 
+    border-radius: 40px; 
+    box-shadow: 0px 0px 5px 0px rgb(52, 51, 51);
 }
+
 .duties-container {
   max-width: 300px;
   margin: 0 auto;
-  border-radius: 5px; }
-
-h1, h2, h3, h4 {
-  color: purple;
+  border-radius: 5px; 
 }
+
+h1, h3, h4 {
+  color: rgb(34, 67, 150);
+}
+
+h2 {
+  color: rgb(69, 96, 163);
+}
+
  /* Navbar */ 
 .navbar-nav.flex-column .nav-item {
-  margin-bottom: 15px; /* Add spacing between links */
+  margin-bottom: 5px; 
 }
 
 a.nav-link {
-  font-size: 18px; /* Customize the link size */
+  font-size: 18px; 
 }
 
 .btn-primary {
-  margin-bottom: 20px; /* Add spacing between the button and the first link */
+  margin-bottom: 5px; 
+}
+
+.nav-item-home {
+  color: rgb(55, 55, 55);
+  text-decoration: none;
+  padding: 5px;
+  font-size: large;
+}
+
+.nav-item-home:hover {
+  color: rgb(11, 9, 51);
 }
 
 /* Login / Register */
@@ -84,9 +125,69 @@ a.nav-link {
 ul {
   list-style: url();
 }
+
 .main-container {
   margin-top: 20px;
 }
+
+.duty-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cheer-img {
+  margin-left: 10px;
+  width: 50px; 
+  height: auto; 
+}
+
+#incomplete-duties, #complete-duties {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+  padding: 0;
+  vertical-align: middle;
+}
+
+.icon-button i {
+  color: #007bff;
+}
+
+.icon-button:hover i {
+  color: #0056b3; 
+}
+
+.duty-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+hr {
+  margin: 10px 0;
+  border: 1px solid #dee2e6;
+}
+
+.bi-check-circle-fill {
+  font-size: 1.2rem;
+  color: green;
+}
+
+
+.bi-trash:hover {
+  color: darkred;
+}
+
 /* 404 Page */
 .container-lg {
   position: absolute;
@@ -94,6 +195,7 @@ ul {
   left: 50%;
   transform: translate(-50%, -50%);
  }
+
  body.page-404 {
   background-image: url(../img/404page.jpg);
   position: relative;
