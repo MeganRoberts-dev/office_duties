@@ -3,18 +3,18 @@
 <div class="main-container">
   <!-- Motivational header -->
   {% if 'user' in session %}
-  <h2>Welcome, {{ session['user'] }}!</h2>
-  <h3 id="motivational-header" class="motivational-header"></h3>
+  <h1>Welcome, {{ session['user'] }}!</h1>
+  <i><h2 id="motivational-header" class="motivational-header"></h2></i>
   {% endif %}
   <!-- Bottom navbar -->
   <div class="d-flex justify-content-center align-items-center">
     <ul class="navbar-nav flex-row">
         {% if 'user' in session %}
-        <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('home') }}">My Duties</a>
+        <li class="nav-item-home">
+            <a class="nav-item-home" href="{{ url_for('home') }}">My Duties</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('add_duty') }}">Add Duty</a>
+        <li class="nav-item-home">
+            <a class="nav-item-home" href="{{ url_for('add_duty') }}">Add Duty</a>
         </li>
         {% else %}
         <li class="nav-item">
@@ -26,58 +26,78 @@
         {% endif %}
     </ul>
 </div>
- <!-- Incomplete Duties Section -->
 <div class="row">
-    <div class="col">
+    <!-- Incomplete Duties Column -->
+    <div class="col-md-6">
         <div class="container mt-3">
+            <div class="duty-header">
             <h4>Incomplete Duties</h4>
+            <img src="{{ url_for('static', filename='img/pin.png') }}" alt="Cheer Image" class="cheer-img">
+            </div>
             <div class="duties-container">
-            <ul id="incomplete-duties">
-                {% for duty in duties %}
-                {% if not duty.completed %}
-                <li id="duty-{{ duty._id }}">
-                    <span class="duty-display">
-                        {{ duty.title }} - {{ duty.description }} 
-                    </span>
-                    <!-- Completed button -->
-                    <form action="{{ url_for('complete_duty', duty_id=duty._id) }}" method="POST"
-                        style="display:inline;" class="complete-form">
-                        <button type="submit" class="btn btn-success btn-sm ml-2"
-                            id="completed-button">Completed</button>
-                    </form>
-                    <!-- Edit Button -->
-                    <a href="{{ url_for('edit_duty', duty_id=duty._id) }}" style="display:inline;" class="btn btn-primary btn-sm ml-2">Edit</a>
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
+                <ul id="incomplete-duties" style="list-style-type: none; padding-left: 0;">
+                    {% for duty in duties %}
+                    {% if not duty.completed %}
+                    <li id="duty-{{ duty._id }}">
+                        <div class="duty-display">
+                            <span>{{ duty.title }} - {{ duty.description }}</span>
+                            
+                            <!-- Completed Icon -->
+                            <form action="{{ url_for('complete_duty', duty_id=duty._id) }}" method="POST" style="display:inline;" class="complete-form">
+                                <button type="submit" class="icon-button" id="completed-button">
+                                    <i class="bi bi-check-circle" title="Mark as Completed"></i>
+                                </button>
+                            </form>
+
+                            <!-- Edit Icon -->
+                            <a href="{{ url_for('edit_duty', duty_id=duty._id) }}" class="icon-button">
+                                <i class="bi bi-pencil-square" title="Edit Duty"></i>
+                            </a>
+                        </div>
+                        <!-- Horizontal line between duties -->
+                        <hr>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="col">
-        <div class="container mt-3">
-            <!-- Completed Duties Section -->
-            <h4>Completed Duties</h4>
-            <ul id="completed-duties">
-                {% for duty in duties %}
-                {% if duty.completed %}
-                <li id="duty-{{ duty._id }}">
-                    <span class="duty-display">
-                        {{ duty.title }} - {{ duty.description }} - 
-                    </span>
-                    <!-- Delete Button-->
 
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                {{ duty.title }}
-                                <form action="{{ url_for('delete_duty', duty_id=duty._id) }}" method="POST" style="display:inline;">
-                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                </form>
-                            </li>
-                {% endif %}
-                {% endfor %}
-            </ul>
+    <!-- Completed Duties Column -->
+    <div class="col-md-6">
+        <div class="container mt-3">
+            <div class="duty-header">
+            <h4>Completed Duties</h4>
+            <img src="{{ url_for('static', filename='img/cheer.png') }}" alt="Cheer Image" class="cheer-img">
+            </div>
+            <div class="duties-container">
+                <ul id="complete-duties" style="list-style-type: none; padding-left: 0;">
+                    {% for duty in duties %}
+                    {% if duty.completed %}
+                    <li id="duty-{{ duty._id }}">
+                        <div class="duty-display">
+                            <span>{{ duty.title }} - {{ duty.description }}</span>
+                            
+                            <!-- Completed Icon (disabled) -->
+                            <i class="bi bi-check-circle-fill" title="Already Completed" style="color: green;"></i>
+
+                          
+                            <!-- Delete Icon -->
+                            <form action="{{ url_for('delete_duty', duty_id=duty._id) }}" method="POST" style="display:inline;" class="delete-form">
+                                <button type="submit" class="icon-button">
+                                    <i class="bi bi-trash" title="Delete Duty" style="color: rgb(246, 0, 0);"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- Horizontal line between duties -->
+                        <hr>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>
-
 {% endblock %}

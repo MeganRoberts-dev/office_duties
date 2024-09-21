@@ -5,10 +5,10 @@
     <ul class="navbar-nav flex-row">
         {% if 'user' in session %}
         <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('home') }}">My Duties</a>
+            <a class="nav-item-home" href="{{ url_for('home') }}">My Duties</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('add_duty') }}">Add Duty</a>
+            <a class="nav-item-home" href="{{ url_for('add_duty') }}">Add Duty</a>
         </li>
         {% endif %}
     </ul>
@@ -16,7 +16,7 @@
 <!-- Main content -->
 <div class="row">
     <div class="col-12 col-md-6 mx-auto">
-        <div class="card">
+        <div class="container">
             <div class="card-body">
                 <h2 class="card-title">Add Duty</h2>
                 <form method="POST" action="{{ url_for('add_duty') }}">
