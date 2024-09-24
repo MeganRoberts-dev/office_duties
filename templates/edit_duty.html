@@ -5,10 +5,10 @@
     <ul class="navbar-nav flex-row">
         {% if 'user' in session %}
         <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('home') }}">My Duties</a>
+            <a class="nav-item-home" href="{{ url_for('home') }}">My Duties</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link me-3" href="{{ url_for('add_duty') }}">Add Duty</a>
+            <a class="nav-item-home" href="{{ url_for('add_duty') }}">Add Duty</a>
         </li>
         {% endif %}
     </ul>
@@ -34,14 +34,15 @@
                         <textarea name="description" id="description" class="form-control" rows="3" required>{{ duty.description }}</textarea>
                     </div>
 
-                    <!-- Duty Completed Checkbox -->
-                    <div class="form-group form-check">
-                        <input type="checkbox" name="completed" id="completed" class="form-check-input" {% if duty.completed %}checked{% endif %}>
-                        <label class="form-check-label" for="completed">Completed</label>
-                    </div>
+<!-- Duty Completed Checkbox -->
+<div class="form-group form-check d-flex align-items-center">
+    <input type="checkbox" name="completed" id="completed" class="form-check-input" {% if duty.completed %}checked{% endif %}>
+    <label class="form-check-label mb-0 ml-2" for="completed">Completed</label>
+</div>
+
 
                     <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary">Update Duty</button>
+                    <button type="submit" class="btn btn-dark">Update Duty</button>
                 </form>
             </div>
         </div>
