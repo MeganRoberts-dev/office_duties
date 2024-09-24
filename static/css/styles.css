@@ -2,7 +2,9 @@
 
 body {
   padding: 80px 0 0 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -37,6 +39,18 @@ input, button {
 .btn {
   margin: 5px;
 }
+.title {
+  color: rgb(196, 120, 134);
+}
+
+h1, h3 {
+  color: rgb(34, 67, 150);
+}
+
+h2 {
+  color: rgb(69, 96, 163);
+}
+
 /* Flash message */ 
 .flash-banner {
   position: fixed;
@@ -46,12 +60,12 @@ input, button {
   z-index: 9999;
   font-size: 2rem;
   text-align: center;
-  color: black; /* You can change the color to anything you prefer */
-  pointer-events: none; /* Disable interaction */
+  color: black; 
+  pointer-events: none; 
 }
 
 .flash-message {
-  background-color: transparent; /* No background color */
+  background-color: transparent; 
   padding: 10px;
 }
 
@@ -59,6 +73,7 @@ input, button {
 .container {
     max-width: 550px;
     width: 100%;
+    margin-top: 20px;
     background-color: #ffffff;
     border-radius: 40px; 
     box-shadow: 0px 0px 5px 0px rgb(52, 51, 51);
@@ -70,36 +85,20 @@ input, button {
   border-radius: 5px; 
 }
 
-h1, h3, h4 {
-  color: rgb(34, 67, 150);
-}
-
-h2 {
-  color: rgb(69, 96, 163);
-}
-
- /* Navbar */ 
-.navbar-nav.flex-column .nav-item {
-  margin-bottom: 5px; 
-}
-
-a.nav-link {
-  font-size: 18px; 
-}
-
-.btn-primary {
-  margin-bottom: 5px; 
-}
-
-.nav-item-home {
-  color: rgb(55, 55, 55);
-  text-decoration: none;
-  padding: 5px;
+ /* Bottom navbar */ 
+ .nav-item-home {
+  color: rgb(39, 39, 39);
+  text-decoration: underline;  
+  text-decoration-thickness: 1px; 
+  text-underline-offset: 3px; 
   font-size: large;
+  padding: 5px;
 }
 
 .nav-item-home:hover {
-  color: rgb(11, 9, 51);
+  color: rgb(11, 9, 51); 
+  text-decoration: underline; 
+  text-decoration-thickness: 3px; 
 }
 
 /* Login / Register */
@@ -129,7 +128,12 @@ ul {
 .main-container {
   margin-top: 20px;
 }
-
+.motivational-header {
+  font-family: "Playwrite DE Grund", cursive;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
 .duty-header {
   display: flex;
   align-items: center;
@@ -183,9 +187,25 @@ hr {
   color: green;
 }
 
-
 .bi-trash:hover {
   color: darkred;
+}
+
+/* Edit HTML */
+.form-check {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  gap: 5px; 
+  margin: 20px 5px 20px 5px;
+}
+
+.form-check-input {
+  margin-left: 0; 
+}
+
+.form-check-label {
+  margin-bottom: 0; 
 }
 
 /* 404 Page */
