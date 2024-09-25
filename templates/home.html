@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="main-container">
+<div class="main-container container-fluid">
   <!-- Motivational header -->
   {% if 'user' in session %}
   <h1>Welcome, {{ session['user'] }}!</h1>
@@ -29,7 +29,7 @@
 <div class="row">
     <!-- Incomplete Duties Column -->
     <div class="col-md-6">
-        <div class="container mt-3">
+        <div class="duty-container mt-3">
             <div class="duty-header">
             <h4><u>Incomplete Duties</u></h4>
             <img src="{{ url_for('static', filename='img/pin.png') }}" alt="Cheer Image" class="cheer-img">
@@ -66,7 +66,7 @@
 
     <!-- Completed Duties Column -->
     <div class="col-md-6">
-        <div class="container mt-3">
+        <div class="duty-container mt-3">
             <div class="duty-header">
             <h4><u>Completed Duties</u></h4>
             <img src="{{ url_for('static', filename='img/trophy.png') }}" alt="Cheer Image" class="cheer-img">
