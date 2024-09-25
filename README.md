@@ -8,7 +8,7 @@
 
 Office Duties is a sleek, modern task management app that empowers users to log in and take control of their work responsibilities with ease. Built with a robust tech stack—HTML, CSS, JavaScript, Flask, Python, and MongoDB—it offers a seamless experience for adding, editing, and deleting duties, all in one streamlined platform. Designed for simplicity and efficiency, Office Duties transforms the way users manage tasks, making organization effortless and intuitive. Whether you're juggling multiple duties or just staying on top of your daily to-dos, this app ensures you stay productive, organized, and in charge.
 
-![screenshot](../office_todo/static/documentation/mockup.png)
+![screenshot](office_todo/static/documentation/mockup.png)
 
 ---
 
