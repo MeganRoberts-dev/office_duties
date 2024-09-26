@@ -6,18 +6,13 @@
 
 ---
 
-Office Duties is a sleek, modern task management app that empowers users to log in and take control of their work responsibilities with ease. Built with a robust tech stack—HTML, CSS, JavaScript, Flask, Python, and MongoDB—it offers a seamless experience for adding, editing, and deleting duties, all in one streamlined platform. Designed for simplicity and efficiency, Office Duties transforms the way users manage tasks, making organization effortless and intuitive. Whether you're juggling multiple duties or just staying on top of your daily to-dos, this app ensures you stay productive, organized, and in charge.
 
 ![screenshot](/static/documentation/mockup.png)
+## Website Overview
+
+**Office Duties** is a sleek, modern task management app that puts users in full control of their work responsibilities with minimal effort. Adding, editing, and deleting tasks has never been this simple! Built for both efficiency and ease, Office Duties streamlines task management, transforming your workflow into something intuitive and stress-free. Plus, with motivational prompts running in the background to keep you inspired, you'll stay productive and focused throughout the day. Whether you're juggling multiple projects or just handling daily to-dos, this app ensures you remain organized, on top of your game, and in charge.
 
 ---
-
-GitHub now supports CALLOUTS in Markdown files.
-There are some callouts already embedded in this application for you.
-However, if you feel that you want to add more, there are certain ones you can use.
-
-NOTE: the preview for callouts isn't yet supported in Gitpod/Codeanywhere/VSCode/etc.
-You'll have to commit/push the changes to GitHub to see it in action.
 
 > [!NOTE]  
 > BLUE: Highlights information that users should take into account, even when skimming.
@@ -35,17 +30,16 @@ You'll have to commit/push the changes to GitHub to see it in action.
 > RED: Negative potential consequences of an action.
 
 Source: https://github.com/orgs/community/discussions/16925
-![screenshot](../office_todo/static/documentation/mockup.png)
 
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://office-duties-6b592fba2b58.herokuapp.com)
 
 ## UX
 
-**Office Duties** is a sleek, modern task management app that empowers users to log in and take control of their work responsibilities with ease. Built with a robust tech stack—**HTML**, **CSS**, **JavaScript**, **Flask**, **Python**, and **MongoDB**—it offers a seamless experience for adding, editing, and deleting duties, all in one streamlined platform. Designed for simplicity and efficiency, **Office Duties** transforms the way users manage tasks, making organization effortless and intuitive. The app also provides motivational prompts to keep users inspired and on track. Whether you're juggling multiple duties or just staying on top of your daily to-dos, this app ensures you stay productive, organized, and in charge.
+The design of Office Duties is purposefully crafted to create a calm and refreshing environment for managing tasks. The pastel color palette—featuring soft pinks, greens, purples, blues, and beige—offers a soothing visual experience, helping to ease the stress that often comes with work. Garden-inspired elements subtly remind users of the outdoors, boosting both mood and focus. To keep users motivated, uplifting prompts run throughout the app, ensuring productivity and positivity stay high as you navigate your daily duties.
 
 ### Colour Scheme
 
-The primary coulors in **Office Duties** are pastel pinks, greens, purples, blues, and beige. These were chosen to match the subtle garden-themed background, which ties into the calming concept of the site. While softer tones dominate the overall design, darker shades are incorporated in the completed tasks section for contrast, giving users a sense of accomplishment. This combination of colors and design elements offers a visually refreshing experience, promoting both focus and relaxation.
+The primary coulors in **Office Duties** are pastel pinks, greens, purples, blues, and beige. These were chosen to match the subtle garden-themed background, which ties into the calming concept of the site. While softer tones dominate the overall design, darker shades are incorporated in the tasks sections for contrast, giving users a sense of accomplishment. This combination of colors and design elements offers a visually refreshing experience, promoting both focus and relaxation.
 
 - `#2A2D34` used for the headers.
 - `#4560A3` used for motivational header.
@@ -55,23 +49,14 @@ The primary coulors in **Office Duties** are pastel pinks, greens, purples, blue
 
 ![screenshot](/static/documentation/coloured-pad.png)
 
+### Typography
 
+- [Fira Sans](https://fonts.google.com/specimen/Fira+Sans) was used for the primary text.
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑START OF NOTES (to be deleted)
+- [Playwrite Deutschland Grundschrift](https://fonts.google.com/specimen/Playwrite+DE+Grund) was used for the motivational header.
 
-Explain any fonts and icon libraries used, like Google Fonts and/or Font Awesome.
+- [Bootstrap icons](https://icons.getbootstrap.com/?q=check) was used for icons on the incomplete and completed lists.
 
-Consider adding a link to each font used, and the Font Awesome site if used (or similar icon library).
-
-Example:
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-- [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
-
-- [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
-
-- [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## User Stories
 
@@ -83,116 +68,38 @@ In this section, list all of your user stories for the project.
 
 ### New Site Users
 
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
-- As a new site user, I would like to ____________, so that I can ____________.
+- As a new site user, I would like to register to the site, so that I can enter and use the application.
+- As a new site user, I would like to log in securely, so that I can manage my duties privately and access them from any device.
+- As a new site user, I would like to create and organize my tasks easily, so that I can stay on top of my work responsibilities without hassle.
+- As a new site user, I would like to edit or delete completed tasks, so that I can keep my task list up-to-date and clutter-free.
+- As a new site user, I would like to mark my tasks as completed, so that I can track my progress and feel a sense of accomplishment.
+- As a new site user, I would like to receive motivational prompts, so that I can stay focused and productive throughout the day.
 
 ### Returning Site Users
 
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
-- As a returning site user, I would like to ____________, so that I can ____________.
+- As a returning site user, I would like to quickly view my pending tasks, so that I can prioritize my work for the day.
+- As a returning site user, I would like to edit existing duties, so that I can update details or track changes in my responsibilities.
+- As a returning site user, I would like to check off completed tasks, so that I can keep my to-do list current and organized.
+- As a returning site user, I would like to access my duties seamlessly from different devices, so that I can manage my tasks anytime and anywhere.
+
 
 ### Site Admin
 
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
-- As a site administrator, I should be able to ____________, so that I can ____________.
+- As a site administrator, I should be able to manage user accounts, so that I can ensure proper access and security for all users.
+- As a site administrator, I should be able to track user activity, so that I can monitor engagement and troubleshoot any issues.
+- As a site administrator, I should be able to edit or update the app’s content, so that I can keep the platform relevant and functional for users.
+- As a site administrator, I should be able to reset or assist with forgotten passwords, so that I can help users regain access quickly and securely.
+
 
 ## Wireframes
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
+Wireframes for dekstop, tablet and mobile were created using the devleopling tool
+[Figma](https://www.figma.com/).
 
-In this section, display your wireframe screenshots using a Markdown `table`.
-Instructions on how to do Markdown `tables` start on line #213 on this site: https://pandao.github.io/editor.md/en.html
 
-Alternatively, dropdowns are a way to condense several wireframes into a collapsible menu to save space.
-Dropdowns in Markdown are considered some of the only acceptable HTML components that are allowed for assessment purposes.
-
-⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️ **IMPORTANT**! ⚠️
-The example below uses the `details` and `summary` code elements.
-However, for these scripts to work, I've had to add spaces within the `< >` elements.
-
-You MUST remove these spaces for it to work properly on your own README/TESTING files.
-Remove the spaces within the `< >` brackets for the `details` and `summary` code elements,
-for the Mobile, Tablet, and Desktop wireframes.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
-I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
-
-### Mobile Wireframes
-
-< details >
-< summary > Click here to see the Mobile Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/mobile-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/mobile-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/mobile-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/mobile-gallery.png)
-
-etc.
-  - repeat for any remaining mobile wireframes
-
-< / details >
-
-### Tablet Wireframes
-
-< details >
-< summary > Click here to see the Tablet Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/tablet-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/tablet-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/tablet-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/tablet-gallery.png)
-
-etc.
-  - repeat for any remaining tablet wireframes
-
-< / details >
-
-### Desktop Wireframes
-
-< details >
-< summary > Click here to see the Desktop Wireframes < / summary >
-
-Home
-  - ![screenshot](documentation/wireframes/desktop-home.png)
-
-About
-  - ![screenshot](documentation/wireframes/desktop-about.png)
-
-Contact
-  - ![screenshot](documentation/wireframes/desktop-contact.png)
-
-Gallery
-  - ![screenshot](documentation/wireframes/desktop-gallery.png)
-
-etc.
-  - repeat for any remaining desktop wireframes
-
-< / details >
+ | Desktop  | Tablet  | Mobile |
+| :------------ |:---------------:| -----:|
+|  ![screenshot](documentation/wireframe/desktop-wireframe.png)   | ![screenshot](documentation/wireframe/tablet-wireframe.png)  |![screenshot](documentation/wireframe/mobile-wireframe.png) |
 
 ## Features
 
