@@ -60,12 +60,6 @@ The primary coulors in **Office Duties** are pastel pinks, greens, purples, blue
 
 ## User Stories
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 START OF NOTES (to be deleted)
-
-In this section, list all of your user stories for the project.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
 ### New Site Users
 
 - As a new site user, I would like to register to the site, so that I can enter and use the application.
@@ -99,7 +93,7 @@ Wireframes for dekstop, tablet and mobile were created using the devleopling too
 
  | Desktop  | Tablet  | Mobile |
 | :------------ |:---------------:| -----:|
-|  ![screenshot](documentation/wireframe/desktop-wireframe.png)   | ![screenshot](documentation/wireframe/tablet-wireframe.png)  |![screenshot](documentation/wireframe/mobile-wireframe.png) |
+|  ![screenshot](/static/documentation/wireframe/desktop-wireframe.png)   | ![screenshot](/static/documentation/wireframe/tablet-wireframe.png)  |![screenshot](/static/documentation/wireframe/mobile-wireframe.png) |
 
 ## Features
 
