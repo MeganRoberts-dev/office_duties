@@ -112,9 +112,12 @@ def add_duty():
 @app.route('/edit/<duty_id>', methods=['GET', 'POST'])
 def edit_duty(duty_id):
     duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
+    if not duty:
+        flash("Duty not found.", "danger")
+        return redirect(url_for('home'))
+    
     owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})
-    ["username"]
-    if session["user"] == owner:
+    if owner and session.get("user") == owner["username"]:
         if request.method == 'POST':
             completed = True if request.form.get('completed') else False
             update_data = {
@@ -122,14 +125,15 @@ def edit_duty(duty_id):
                 'description': request.form.get('description'),
                 'completed': completed
             }
-            mongo.db.duties.update_one({"_id": ObjectId(duty_id)},
-            {"$set": update_data})
+            mongo.db.duties.update_one({"_id": ObjectId(duty_id)}, {"$set": update_data})
             flash('Duty Updated Successfully', 'success')
             return redirect(url_for('home'))
+        
         return render_template('edit_duty.html', duty=duty)
-
+    
     flash('Access Denied - Invalid User', 'danger')
     return redirect(url_for('home'))
+
 
 
 @app.route('/delete_duty/<duty_id>', methods=['POST'])
