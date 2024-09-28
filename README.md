@@ -113,7 +113,7 @@ Wireframes for dekstop, tablet and mobile were created using the devleopling too
 
     - The motivational header enhances the user experience by delivering fresh, uplifting messages that change every five seconds. This feature keeps users inspired and engaged while they manage their tasks, providing a continuous boost of positivity. By integrating these dynamic prompts, the app creates an encouraging atmosphere that motivates users to stay focused and productive throughout their day.
 
-![Motivational Header](static/documentation/feautres/motivational-header.mov) 
+![Motivational Header](static/documentation/feautres/motivational-header.png) 
 
 
 - **Task sheets**
@@ -449,17 +449,9 @@ You can fork this repository by using the following steps:
 
 | Source | Location | Type | Notes |
 | --- | --- | --- | --- |
-| [Pexels](https://www.pexels.com) | entire site | image | favicon on all pages |
-| [Lorem Picsum](https://picsum.photos) | home page | image | hero image background |
-| [Unsplash](https://unsplash.com) | product page | image | sample of fake products |
-| [Pixabay](https://pixabay.com) | gallery page | image | group of photos for gallery |
-| [Wallhere](https://wallhere.com) | footer | image | background wallpaper image in the footer |
-| [This Person Does Not Exist](https://thispersondoesnotexist.com) | testimonials | image | headshots of fake testimonial images |
-| [Audio Micro](https://www.audiomicro.com/free-sound-effects) | game page | audio | free audio files to generate the game sounds |
-| [Videvo](https://www.videvo.net/) | home page | video | background video on the hero section |
-| [TinyPNG](https://tinypng.com) | entire site | image | tool for image compression |
+| [Pngtree](https://pngtree.com/) | Entire site | Bakcground and images| Source of backrgound image the pin and trophy images |
+| [Freepik](https://www.freepik.com/) | 404 page | Backrgound | Office image |
 
 ### Acknowledgements
-
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://github.com/TravelTimN) for his support throughout the development of this project.
-- I would like to thank the [Code Institute](https://codeinstitute.net) team for their guidance and motiviatoin.
+[!IMPORTANT]
+A heartfelt thank you to [Code Institute] for the exceptional learning material that inspired and guided this project. A special note of gratitude goes to my Code Institute mentor, [Tim Nelson], for his steadfast support, encouragement, and invaluable advice throughout this rewarding journey. Additionally, I want to thank my co-wokers for prompting me with this grest idea.

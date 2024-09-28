@@ -24,7 +24,7 @@ def home():
         return render_template('home.html', duties=duties)
     return redirect(url_for('login'))
 
-# Register
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -49,21 +49,20 @@ def register():
 
     return render_template('register.html')
 
-# Login
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('username').lower()
         password = request.form.get('password')
 
-        # Check if username exists in DB
         existing_user = mongo.db.users.find_one({'username': username})
 
         if existing_user:
-            # Verify password
+
             if check_password_hash(existing_user['password'], password):
                 session['user'] = username
-                return redirect(url_for('home'))  # Redirect to home after login
+                return redirect(url_for('home'))
             else:
                 flash('Incorrect Username and/or Password', 'danger')
         else:
@@ -73,10 +72,9 @@ def login():
 
     return render_template('login.html')
 
-# Profile
+
 @app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
-    # grab the session user's username from db
     username = mongo.db.users.find_one(
         {'username': session['user']})['username']
 
@@ -85,14 +83,14 @@ def profile(username):
 
     return redirect(url_for('login'))
 
-# Logout
+
 @app.route('/logout')
 def logout():
     session.pop('user')
     flash('You have been logged out.', 'info')
     return redirect(url_for('login'))
 
-# Add duty
+
 @app.route('/add_duty', methods=['GET', 'POST'])
 def add_duty():
     if request.method == 'POST':
@@ -110,11 +108,12 @@ def add_duty():
 
     return render_template('add_duty.html')
 
-# Edit duty
+
 @app.route('/edit/<duty_id>', methods=['GET', 'POST'])
 def edit_duty(duty_id):
     duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
-    owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})["username"]
+    owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})
+    ["username"]
     if session["user"] == owner:
         if request.method == 'POST':
             completed = True if request.form.get('completed') else False
@@ -123,36 +122,34 @@ def edit_duty(duty_id):
                 'description': request.form.get('description'),
                 'completed': completed
             }
-            mongo.db.duties.update_one({"_id": ObjectId(duty_id)}, {"$set": update_data})
+            mongo.db.duties.update_one({"_id": ObjectId(duty_id)},
+            {"$set": update_data})
             flash('Duty Updated Successfully', 'success')
             return redirect(url_for('home'))
-    
         return render_template('edit_duty.html', duty=duty)
 
     flash('Access Denied - Invalid User', 'danger')
     return redirect(url_for('home'))
 
-# Delete duty
+
 @app.route('/delete_duty/<duty_id>', methods=['POST'])
 def delete_duty(duty_id):
     duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
-    owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})["username"]
+    owner = mongo.db.users.find_one
+    ({"_id": ObjectId(duty["owner"])})["username"]
 
     if session["user"] == owner:
         mongo.db.duties.delete_one({"_id": ObjectId(duty_id)})
         flash('Duty deleted successfully!', 'success')
     else:
         flash('Access Denied - Invalid User', 'danger')
-    
     return redirect(url_for('home'))
-
-# Complete duty
+    
+    
 @app.route('/complete_duty/<duty_id>', methods=['POST'])
 def complete_duty(duty_id):
     duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
-    
     owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})["username"]
-    
     if session["user"] == owner:
 
         mongo.db.duties.update_one(
@@ -162,9 +159,7 @@ def complete_duty(duty_id):
         flash('Duty marked as completed!', 'success')
     else:
         flash('Access Denied - Invalid User', 'danger')
-    
     return redirect(url_for('home'))
-
 
 if __name__ == '__main__':
     app.run(
