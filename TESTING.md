@@ -8,7 +8,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| templates | 404.html | ![screenshot](documentation/validation/path-to-screenshot.png) | |
 | templates | add_duty.html | ![screenshot](/static/documentation/validation/html-add-duty.png) | |
 | templates | edit_duty.html | ![screenshot](/static/documentation/validation/html-edit.png) | |
 | templates | home.html | ![screenshot](/static/documentation/validation/html-home.png) | |
@@ -43,8 +42,8 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 ## Browser Compatibility
 
 | Browser | Site |  Notes |
-| --- | --- | --- | --- | --- | --- |
-| Chrome | ![screenshot](/static/documentation/feautres/login-page.) | Works as expected |
+| --- | --- | --- |
+| Chrome | ![screenshot](/static/documentation/features/login-page.png) | Works as expected |
 | Firefox | ![screenshot](/static/documentation/browsers/firefox.png) | Works as expected |
 | Edge | ![screenshot](/static/documentation/browsers/edge.png) | Works as expected |
 | Opera | ![screenshot](/static/documentation/browsers/opera.png) | Works as expected |
@@ -68,7 +67,8 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Login | ![screenshot](/static/documentation/lighthouse/mobile-login.png) | ![screenshot](/static/documentation/lighthouse/desktop-login.png) | No warnings |
 | Add Duty| ![screenshot](/static/documentation/lighthouse/add-duty.png) | ![screenshot](/static/documentation/lighthouse/add-duty-desktop.png) | No warnings |
 
-Due to login and security credentials, I am unable to perform a Lighthouse audit on the home page directly; however, based on the successful results from auditing the login and add duty pages, I can reasonably assume that the home page would also meet the same performance and accessibility standards.
+> [!NOTE]  
+> BLUE: Due to login and security credentials, I am unable to perform a Lighthouse audit on the home page directly; however, based on the successful results from auditing the login and add duty pages, I can reasonably assume that the home page would also meet the same performance and accessibility standards.
 
 ## Defensive Programming
 
@@ -195,16 +195,6 @@ The aforementioned tests are just an example of a few different project scenario
 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## User Story Testing
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Testing user stories is actually quite simple, once you've already got the stories defined on your README.
-
-Most of your project's **features** should already align with the **user stories**,
-so this should as simple as creating a table with the user story, matching with the re-used screenshot
-from the respective feature.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 | User Story | Screenshot |
 | --- | --- |
