@@ -84,38 +84,38 @@ Wireframes for dekstop, tablet and mobile were created using the devleopling too
 
     - The registration page provides a secure way for new users to create an account, ensuring their personal information is protected from the start. By requiring a strong password and validating user details, this feature helps maintain the integrity of the data stored in MongoDB. Users can quickly set up their accounts and gain access to a personalized task management experience, allowing them to efficiently manage their duties while keeping their information safe and secure.
 
-![screenshot](/static/documentation/feautres/register-page.png)
+![screenshot](/static/documentation/features/register-page.png)
 
 - **Login page**
 
     - The login page ensures secure access to users' tasks by requiring authentication, protecting personal information with robust password safety measures. User data is stored securely in MongoDB, maintaining privacy and integrity. This feature allows users to manage their duties easily and access their accounts from any device, providing a seamless and secure experience for handling daily responsibilities.
 
-![screenshot](/static/documentation/feautres/login-page.png)
+![screenshot](/static/documentation/features/login-page.png)
 
 - **Motivational header**
 
     - The motivational header enhances the user experience by delivering fresh, uplifting messages that change every five seconds. This feature keeps users inspired and engaged while they manage their tasks, providing a continuous boost of positivity. By integrating these dynamic prompts, the app creates an encouraging atmosphere that motivates users to stay focused and productive throughout their day.
 
-![Motivational Header](static/documentation/feautres/motivational-header.png) 
+![Motivational Header](/static/documentation/features/motivational-header.png) 
 
 
 - **Task sheets**
 
     - The task sheets are designed to streamline task management by separating incomplete and completed tasks for better organization. Users can easily edit tasks in the incomplete sheet, allowing for quick updates or modifications. When a task is finished, clicking the tick icon moves it to the completed sheet, providing a clear visual of progress made. Additionally, users can delete tasks from the completed sheet by pressing the trash icon, ensuring their task lists remain tidy and relevant. This intuitive design simplifies the task management process, making it easy for users to stay on top of their responsibilities.
 
-![screenshot](/static/documentation/feautres/task-sheets.png)
+![screenshot](/static/documentation/features/task-sheets.png)
 
 - **Add duty page**
 
     - The add duty page allows users to effortlessly create new tasks by entering a title and a detailed description. This intuitive interface ensures that all relevant information is captured, making it easy to define responsibilities clearly. Once a task is added, it is securely stored in MongoDB and seamlessly integrated into the user’s task list, enabling them to stay organized and on top of their workload. This straightforward functionality empowers users to take control of their task management by adding duties that align with their goals and priorities.
 
-![screenshot](/static/documentation/feautres/add-duty-page.png)
+![screenshot](/static/documentation/features/add-duty-page.png)
 
 - **Edit page**
 
     - The edit page provides users with the ability to easily modify the title or description of any task, ensuring their task lists remain accurate and up-to-date. In addition to these edits, users can also mark tasks as complete directly from this page. Any changes made will automatically reflect on the home page, allowing for seamless task management. This user-friendly interface makes it simple to keep responsibilities organized and aligned with current priorities, enhancing overall productivity and efficiency.
 
-![screenshot](/static/documentation/feautres/edit-page.png)
+![screenshot](/static/documentation/features/edit-page.png)
 
 ### Future Features
 
