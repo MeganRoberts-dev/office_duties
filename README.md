@@ -6,15 +6,15 @@
 
 ---
 
-
 ![screenshot](/static/documentation/mockup.png)
-## Website Overview
-
-**Office Duties** is a sleek, modern task management app that puts users in full control of their work responsibilities with minimal effort. Adding, editing, and deleting tasks has never been this simple! Built for both efficiency and ease, Office Duties streamlines task management, transforming your workflow into something intuitive and stress-free. Plus, with motivational prompts running in the background to keep you inspired, you'll stay productive and focused throughout the day. Whether you're juggling multiple projects or just handling daily to-dos, this app ensures you remain organized, on top of your game, and in charge.
 
 ---
 
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://office-duties-6b592fba2b58.herokuapp.com)
+
+## Website Overview
+
+**Office Duties** is a sleek, modern task management app that puts users in full control of their work responsibilities with minimal effort. Adding, editing, and deleting tasks has never been this simple! Built for both efficiency and ease, Office Duties streamlines task management, transforming your workflow into something intuitive and stress-free. Plus, with motivational prompts running in the background to keep you inspired, you'll stay productive and focused throughout the day. Whether you're juggling multiple projects or just handling daily to-dos, this app ensures you remain organized, on top of your game, and in charge.
 
 ## UX
 
