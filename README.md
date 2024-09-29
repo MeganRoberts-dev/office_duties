@@ -437,4 +437,4 @@ You can fork this repository by using the following steps:
 
 ### Acknowledgements
 > [!IMPORTANT]  
-> A heartfelt thank you to [Code Institute] for the exceptional learning material that inspired and guided this project. A special note of gratitude goes to my Code Institute mentor, [Tim Nelson], for his steadfast support, encouragement, and invaluable advice throughout this rewarding journey. Additionally, I want to thank my co-wokers for prompting me with this grest idea.
+> A heartfelt thank you to Code Institute for the exceptional learning material that inspired and guided this project. A special note of gratitude goes to my Code Institute mentor, TTim Nelson, for his steadfast support, encouragement, and invaluable advice throughout this rewarding journey. Additionally, I want to thank my co-wokers for prompting me with this grest idea.
