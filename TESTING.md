@@ -8,12 +8,12 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| templates | add_duty.html | ![screenshot](/static/documentation/validation/html-add-duty.png) | Pass |
-| templates | edit_duty.html | ![screenshot](/static/documentation/validation/html-edit.png) | Pass |
-| templates | home.html | ![screenshot](/static/documentation/validation/html-home.png) | Pass |
-| templates | login.html | ![screenshot](/static/documentation/validation/html-login.png) | Pass |
-| templates | profile.html | ![screenshot](documentation/validation/path-to-screenshot.png) | Pass |
-| templates | register.html | ![screenshot](/static/documentation/validation/html-register.png) | Pass |
+| Templates | add_duty.html | ![screenshot](/static/documentation/validation/html-add-duty.png) | Pass |
+| Templates | edit_duty.html | ![screenshot](/static/documentation/validation/html-edit.png) | Pass |
+| Templates | home.html | ![screenshot](/static/documentation/validation/html-home.png) | Pass |
+| Templates | login.html | ![screenshot](/static/documentation/validation/html-login.png) | Pass |
+| Templates | profile.html | ![screenshot](documentation/validation/path-to-screenshot.png) | Pass |
+| Templates | register.html | ![screenshot](/static/documentation/validation/html-register.png) | Pass |
 
 ### CSS
 
@@ -21,7 +21,7 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| static | styles.css | ![screenshot](/static/documentation/validation/css.png) | Pass |
+| Static | styles.css | ![screenshot](/static/documentation/validation/css.png) | Pass |
 
 ### JavaScript
 
@@ -29,7 +29,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | Screenshot | Notes |
 | --- | --- | --- | --- |
-| static | main.js | ![screenshot](/static/documentation/validation/javscript.png) | Two minor warnings |
+| Static | main.js | ![screenshot](/static/documentation/validation/javscript.png) | Two minor warnings |
 
 ### Python
 
