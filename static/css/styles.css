@@ -214,16 +214,3 @@ hr {
 .form-check-label {
   margin-bottom: 0; 
 }
-
-/* 404 Page */
-.container-lg {
-  position: absolute;
-  top: 18%;
-  left: 50%;
-  transform: translate(-50%, -50%);
- }
-
- body.page-404 {
-  background-image: url(../img/404page.jpg);
-  position: relative;
-}
