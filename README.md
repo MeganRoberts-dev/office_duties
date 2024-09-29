@@ -14,23 +14,6 @@
 
 ---
 
-> [!NOTE]  
-> BLUE: Highlights information that users should take into account, even when skimming.
-
-> [!TIP]  
-> GREEN: Optional information to help a user be more successful.
-
-> [!IMPORTANT]  
-> PURPLE: Crucial information necessary for users to succeed.
-
-> [!WARNING]  
-> YELLOW: Critical content demanding immediate user attention due to potential risks.
-
-> [!CAUTION]  
-> RED: Negative potential consequences of an action.
-
-Source: https://github.com/orgs/community/discussions/16925
-
 source: [amiresponsive](https://ui.dev/amiresponsive?url=https://office-duties-6b592fba2b58.herokuapp.com)
 
 ## UX
@@ -453,5 +436,5 @@ You can fork this repository by using the following steps:
 | [Freepik](https://www.freepik.com/) | 404 page | Backrgound | Office image |
 
 ### Acknowledgements
-[!IMPORTANT]
-A heartfelt thank you to [Code Institute] for the exceptional learning material that inspired and guided this project. A special note of gratitude goes to my Code Institute mentor, [Tim Nelson], for his steadfast support, encouragement, and invaluable advice throughout this rewarding journey. Additionally, I want to thank my co-wokers for prompting me with this grest idea.
+> [!IMPORTANT]  
+> A heartfelt thank you to [Code Institute] for the exceptional learning material that inspired and guided this project. A special note of gratitude goes to my Code Institute mentor, [Tim Nelson], for his steadfast support, encouragement, and invaluable advice throughout this rewarding journey. Additionally, I want to thank my co-wokers for prompting me with this grest idea.
