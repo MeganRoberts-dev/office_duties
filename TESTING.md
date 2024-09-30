@@ -78,7 +78,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Click on Logout| Returns user to login page and logs out of their profile | Pass | [screenshot](/static/documentation/CRUD/logout.png) |
 | | Click on My Duty| Returns user to their profile | Pass | [screenshot](/static/documentation/CRUD/my-duty.png) |
 | | Click on edit and complete button | Edit button redirects user to Edit page and Complete button moves task to complete sheet | Pass | [screenshot](/static/documentation/CRUD/edit-button.png) |
- | Click on trash button | Deletes task on completed sheet| Pass | [screenshot](/static/documentation/CRUD/delete.png)
+| | Click on delete button| Moves task to completed task sheet | Pass | [screenshot](/static/documentation/CRUD/delete.png) |
 | Add Duty Page | | | | | |
 | | Enter form boxes and click add button | Field will accept freeform text and add button will add the task to home oage | Pass | [screenshot](/static/documentation/CRUD/edit-button.png) |
 | Edit page | | | | | |
@@ -98,6 +98,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Profile | | | | | |
 | | Content | User tasks will all be saved since last sessions | Pass | [screenshot](/static/documentation/CRUD/home-saves.png.png)|
 | | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
+| | Flash messages | Any incorrect login details, brute force, completed / edited or deleted tasks will prompt a flash message| Pass | Lasts 2 seconds before fading off screen |
 
 ## User Story Testing
 
