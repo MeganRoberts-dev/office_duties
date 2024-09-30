@@ -75,7 +75,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | --- | --- | --- | --- | --- | 
 | Home | | | | | 
 | | Click on Logo | Redirection to Home page | Pass | ![screenshot](/static/documentation/CRUD/logo.png)|
-| | Click on Logout| Returns user to login page and logs out of their profile | Pass | [screenshot](/static/documentation/CRUD/logout.png) |
+| | Click on Logout| Returns user to login page and logs out of their profile | Pass | ![screenshot](/static/documentation/CRUD/logout.png) |
 | | Click on My Duty| Returns user to their profile | Pass | ![screenshot](/static/documentation/CRUD/my-duty.png) |
 | | Click on edit and complete button | Edit button redirects user to Edit page and Complete button moves task to complete sheet | Pass | ![screenshot](/static/documentation/CRUD/edit-button.png) |
 | | Click on delete button| Moves task to completed task sheet | Pass | ![screenshot](/static/documentation/CRUD/delete.png) |
@@ -87,7 +87,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | | Update button | Update the changed content on the home page | Pass | ![screenshot](/static/documentation/CRUD/edit-complete.png) |
 | Register | | | | | |
 | | Click on Sign Up button | Redirection to Sign Up page | Pass | ![screenshot](/static/documentation/CRUD/register.png)|
-| | Enter valid username | Field will only accept email address format | Pass | ![screenshot](/static/documentation/CRUD/register.png.png) |
+| | Enter valid username | Field will only accept username format | Pass | ![screenshot](/static/documentation/CRUD/register.png) |
 | | Enter valid password | Field will only accept password format | Pass | ![screenshot](/static/documentation/CRUD/register.png)|
 | | Click on register button | Redirects user to blank Sign In page and saves credentials | Pass | ![screenshot](/static/documentation/CRUD/register-btn.png) |
 | Log In | | | | | |
