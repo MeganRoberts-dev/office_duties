@@ -177,6 +177,38 @@ It contains 3 collections:
     | username | String | |
     | password | String | uses Secure Hash Algorithm (SHA) |
 
+I have also used Mermaid to build an interactive version of my database schema.
+
+```mermaid
+erDiagram
+    CATEGORIES {
+        ObjectId _id
+        String category_name
+    }
+    
+    TASKS {
+        ObjectId _id
+        String category_name
+        String task_name
+        String task_description
+        String is_urgent
+        String due_date
+        String created_by
+    }
+    
+    USERS {
+        ObjectId _id
+        String username
+        String password
+    }
+
+    CATEGORIES ||--o TASKS : has
+    USERS ||--o TASKS : "created by"
+```
+
+Source: [Mermaid](https://mermaid.live/edit#pako:eNqlUk1Lw0AQ_SthzmlJUkPN3ooWKR4KTb1IIGyzY7rW7Ib9QGPMf3fbBC2miOAcZuG9-Xgzsy0UkiEQQHXLaalolQnP2c1iu7xbb1bL1Gt75Gjr3TMWZsW8nLNvNDWKi9IrqMFSqiYXtMKe7fqn99tFev-vamesofrwC8NQF4rXhksxCuA6t6pEYUYMs5gz13asRaGDWb5rLoz1kC43fx_LalQXdddU61ep2FeH0R0-PiYT2Q5rJN6e6nMBP9gMBtGeEw3gQ4Wqopy5S5-kZmD26GTAMZRRdcggE52Lo9bItBEFEKMs-mDr40qGvwHkib5oh9ZUAGnhDUh4nUzDcB5GcZBE81k0j31ogASdD-9SuoxgmvR2FcySeBbH0Sn98UT2PZS05X6o3X0C8wvFkA) 
+
+
 ## Testing
 
 > [!NOTE]  
@@ -185,22 +217,6 @@ It contains 3 collections:
 ## Deployment
 
 The live deployed application can be found deployed on [Heroku](https://office-duties-6b592fba2b58.herokuapp.com).
-
-### PostgreSQL Relational Database
-
-This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net).
-
-To obtain my own Postgres Database from Code Institute, I followed these steps:
-
-- Signed-in to the CI LMS using my email address.
-- An email was sent to me with my new Postgres Database.
-
-> [!CAUTION]  
-> - PostgreSQL databases by Code Institute are only available to CI Students.
-> - You must acquire your own PostgreSQL database through some other method
-> if you plan to clone/fork this repository.
-> - Code Institute students are allowed a maximum of 8 databases.
-> - Databases are subject to deletion after 18 months.
 
 ### MongoDB Non-Relational Database
 
@@ -275,112 +291,6 @@ Or:
 	- `git push heroku main`
 
 The project should now be connected and deployed to Heroku!
-
-### Local Deployment
-
-This project can be cloned or forked in order to make a local copy on your own system.
-
-For either method, you will need to install any applicable packages found within the *requirements.txt* file.
-
-- `pip3 install -r requirements.txt`.
-
-If you are using SQLAlchemy for your project, you need to create a local PostgreSQL database.
-In this example, the example database name is **db-name**.
-
-```shell
-workspace (branch) $ set_pg
-workspace (branch) $ psql
-
-... connection to postgres ...
-
-postgres=# CREATE DATABASE db-name;
-CREATE DATABASE
-postgres=# \c db-name;
-You are now connected to database "db-name" as user "foobar".
-db-name=# \q
-```
-
-Once that database is created, you must migrate the database changes from your models.py file.
-This example uses **app-name** for the name of the primary Flask application.
-
-```shell
-workspace (branch) $ python3
-
-... connection to Python CLI ...
-
->>> from app-name import db
->>> db.create_all()
->>> exit()
-```
-
-To confirm that the database table(s) have been created, you can use the following:
-
-```shell
-workspace (branch) $ psql -d db-name
-
-... connection to postgres ...
-
-postgres=# \dt
-
-	List of relations
-Schema | Name | Type | Owner
--------+------+------+--------
-public | blah1 | table | foobar
-public | blah2 | table | foobar
-public | blah3 | table | foobar
-
-db-name=# \q
-```
-
-You will need to create a new file called `env.py` at the root-level,
-and include the same environment variables listed above from the Heroku deployment steps, plus a few extras.
-
-> [!IMPORTANT]  
-> This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-Sample `env.py` file:
-
-```python
-import os
-
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("MONGO_DBNAME", "user's own value")
-os.environ.setdefault("MONGO_URI", "user's own value")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "user's own value")
-
-# local environment only (do not include these in production/deployment!)
-os.environ.setdefault("DB_URL", "user's own value")
-os.environ.setdefault("DEBUG", "True")
-os.environ.setdefault("DEVELOPMENT", "True")
-```
-
-If using Flask-Migrate, make sure to include the following steps as well.
-
-During the course of development, it became necessary to update the PostgreSQL data models.
-In order to do this, [Flask-Migrate](https://flask-migrate.readthedocs.io) was used.
-
-- `pip3 install Flask-Migrate`
-- Import the newly installed package on your main `__init__.py` file:
-	- `from flask_migrate import Migrate`
-- Define **Migrate** in the same file after **app** and **db** are defined:
-	- `migrate = Migrate(app, db)`
-- Initiate the migration changes in the terminal:
-
-```shell
-workspace (branch) $ flask db init
-
-	... generating migrations ...
-
-workspace (branch) $ set_pg
-workspace (branch) $ flask db migrate -m "Add a commit message for this migration"
-
-	... migrating changes ...
-
-workspace (branch) $ flask db upgrade
-
-	... updating database ...
-```
 
 #### Cloning
 

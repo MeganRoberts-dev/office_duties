@@ -12,7 +12,6 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 | Templates | edit_duty.html | ![screenshot](/static/documentation/validation/html-edit.png) | Pass |
 | Templates | home.html | ![screenshot](/static/documentation/validation/html-home.png) | Pass |
 | Templates | login.html | ![screenshot](/static/documentation/validation/html-login.png) | Pass |
-| Templates | profile.html | ![screenshot](documentation/validation/path-to-screenshot.png) | Pass |
 | Templates | register.html | ![screenshot](/static/documentation/validation/html-register.png) | Pass |
 
 ### CSS
@@ -37,7 +36,7 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | CI URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-|  | app.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/office_duties/main/app.py) | ![screenshot](/static/documentation/validation/python.png) | A few minor warnings but nothing to cause conern|
+|  | app.py | [PEP8 CI](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/MeganRoberts-dev/office_duties/main/app.py) | ![screenshot](/static/documentation/validation/python-pep8.png) | Pass|
 
 ## Browser Compatibility
 
@@ -72,127 +71,33 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 
 ## Defensive Programming
 
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Defensive programming (defensive design) is extremely important!
-
-When building projects that accept user inputs or forms, you should always test the level of security for each.
-Examples of this could include (not limited to):
-
-Forms:
-- Users cannot submit an empty form
-- Users must enter valid email addresses
-
-PP3 (Python-only):
-- Users must enter a valid letter/word/string when prompted
-- Users must choose from a specific list only
-
-MS3 (Flask) | MS4/PP4/PP5 (Django):
-- Users cannot brute-force a URL to navigate to a restricted page
-- Users cannot perform CRUD functionality while logged-out
-- User-A should not be able to manipulate data belonging to User-B, or vice versa
-- Non-Authenticated users should not be able to access pages that require authentication
-- Standard users should not be able to access pages intended for superusers
-
-You'll want to test all functionality on your application, whether it's a standard form,
-or uses CRUD functionality for data manipulation on a database.
-Make sure to include the `required` attribute on any form-fields that should be mandatory.
-Try to access various pages on your site as different user types (User-A, User-B, guest user, admin, superuser).
-
-You should include any manual tests performed, and the expected results/outcome.
-
-Testing should be replicable.
-Ideally, tests cases should focus on each individual section of every page on the website.
-Each test case should be specific, objective, and step-wise replicable.
-
-Instead of adding a general overview saying that everything works fine,
-consider documenting tests on each element of the page
-(ie. button clicks, input box validation, navigation links, etc.) by testing them in their happy flow,
-and also the bad/exception flow, mentioning the expected and observed results,
-and drawing a parallel between them where applicable.
-
-Consider using the following format for manual test cases:
-
-Expected Outcome / Test Performed / Result Received / Fixes Implemented
-
-- **Expected**: "Feature is expected to do X when the user does Y."
-- **Testing**: "Tested the feature by doing Y."
-- (either) **Result**: "The feature behaved as expected, and it did Y."
-- (or) **Result**: "The feature did not respond to A, B, or C."
-- **Fix**: "I did Z to the code because something was missing."
-
-Use the table below as a basic start, and expand on it using the logic above.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-Defensive programming was manually tested with the below user acceptance testing:
-
-| Page | Expectation | Test | Result | Fix | Screenshot |
+| Page | User Action | Expected Result | Pass/Fail | Screenshot |
 | --- | --- | --- | --- | --- | --- |
-| Home | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature01.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature02.png) |
-| About | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature03.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature04.png) |
-| Gallery | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature05.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature06.png) |
-| Contact | | | | | |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature behaved as expected, and it did Y | Test concluded and passed | ![screenshot](documentation/features/feature07.png) |
-| | Feature is expected to do X when the user does Y | Tested the feature by doing Y | The feature did not respond to A, B, or C. | I did Z to the code because something was missing | ![screenshot](documentation/features/feature08.png) |
-| repeat for all remaining pages | x | x | x | x | x |
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Another way of performing defensive testing is a simple Pass/Fail for each test.
-The assessors prefer the above method, with the full test explained, but this is also acceptable in most cases.
-
-When in doubt, use the above method instead, and delete the table below.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
-
-| Page | User Action | Expected Result | Pass/Fail | Comments |
-| --- | --- | --- | --- | --- |
 | Home | | | | |
-| | Click on Logo | Redirection to Home page | Pass | |
-| | Click on Home link in navbar | Redirection to Home page | Pass | |
-| Gallery | | | | |
-| | Click on Gallery link in navbar | Redirection to Gallery page | Pass | |
-| | Load gallery images | All images load as expected | Pass | |
-| Contact | | | | |
-| | Click on Contact link in navbar | Redirection to Contact page | Pass | |
-| | Enter first/last name | Field will accept freeform text | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter message in textarea | Field will accept freeform text | Pass | |
-| | Click the Submit button | Redirects user to form-dump | Pass | User must click 'Back' button to return |
-| Sign Up | | | | |
-| | Click on Sign Up button | Redirection to Sign Up page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password (twice) | Field will only accept password format | Pass | |
-| | Click on Sign Up button | Asks user to confirm email page | Pass | Email sent to user |
-| | Confirm email | Redirects user to blank Sign In page | Pass | |
+| | Click on Logo | Redirection to Home page | Pass | [screenshot](/static/documentation/CRUD/logo.png)|
+| | Click on Logout| Returns user to login page and logs out of their profile | Pass | [screenshot](/static/documentation/CRUD/logout.png) |
+| | Click on My Duty| Returns user to their profile | Pass | [screenshot](/static/documentation/CRUD/my-duty.png) |
+| | Click on edit and complete button | Edit button redirects user to Edit page and Complete button moves task to complete sheet | Pass | [screenshot](/static/documentation/CRUD/edit-button.png) |
+ | Click on trash button | Deletes task on completed sheet| Pass | [screenshot](/static/documentation/CRUD/delete.png)
+| Add Duty Page | | | | |
+| | Enter form boxes and click add button | Field will accept freeform text and add button will add the task to home oage | Pass | [screenshot](/static/documentation/CRUD/edit-button.png) |
+| Edit page | | | | |
+| | Edit content | Ability to change content | Pass | [screenshot](/static/documentation/CRUD/edit-text.png) |
+| | Complete button | Move task to complete sheet | Pass | [screenshot](/static/documentation/CRUD/edit-complete.png.png) |
+| | Update button | Update the changed content on the home page | Pass | [screenshot](/static/documentation/CRUD/edit-complete.png) |
+| Register | | | | |
+| | Click on Sign Up button | Redirection to Sign Up page | Pass | [screenshot](/static/documentation/CRUD/register.png)|
+| | Enter valid username | Field will only accept email address format | Pass | [screenshot](/static/documentation/CRUD/register.png.png) |
+| | Enter valid password | Field will only accept password format | Pass | [screenshot](/static/documentation/CRUD/register.png)|
+| | Click on register button | Redirects user to blank Sign In page and saves credentials | Pass | [screenshot](/static/documentation/CRUD/register-btn.png) |
 | Log In | | | | |
-| | Click on the Login link | Redirection to Login page | Pass | |
-| | Enter valid email address | Field will only accept email address format | Pass | |
-| | Enter valid password | Field will only accept password format | Pass | |
-| | Click Login button | Redirects user to home page | Pass | |
-| Log Out | | | | |
-| | Click Logout button | Redirects user to logout page | Pass | Confirms logout first |
-| | Click Confirm Logout button | Redirects user to home page | Pass | |
+| | Click on the Login link | Redirection to Login page | Pass | [screenshot](/static/documentation/CRUD/login-btn.png) |
+| | Enter valid username | Field will only accept username that has signed-up | Pass | [screenshot](/static/documentation/CRUD/login-content.png) |
+| | Enter valid password | Field will only accept password that has signed-up with matching username | Pass | [screenshot](/static/documentation/CRUD/login-content.png) |
+| | Click Login button | Redirects user to home page | Pass | [screenshot](/static/documentation/CRUD/login-home.png)|
 | Profile | | | | |
-| | Click on Profile button | User will be redirected to the Profile page | Pass | |
-| | Click on the Edit button | User will be redirected to the edit profile page | Pass | |
-| | Click on the My Orders link | User will be redirected to the My Orders page | Pass | |
+| | Content | User tasks will all be saved since last sessions | Pass | [screenshot](/static/documentation/CRUD/home-saves.png.png)|
 | | Brute forcing the URL to get to another user's profile | User should be given an error | Pass | Redirects user back to own profile |
-| repeat for all remaining pages | x | x | x | x |
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-START OF NOTES (to be deleted)
-
-Repeat for all other tests, as applicable to your own site.
-The aforementioned tests are just an example of a few different project scenarios.
-
-🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑-END OF NOTES (to be deleted)
 
 ## User Story Testing
 
