@@ -172,6 +172,8 @@ It contains 3 collections:
     | username | String | |
     | password | String | uses Secure Hash Algorithm (SHA) |
 
+I have also used Mermaid to build an interactive version of my database schema.
+
 ```mermaid
 erDiagram
     CATEGORIES {
@@ -197,8 +199,8 @@ erDiagram
 
     CATEGORIES ||--o{ TASKS : has
     USERS ||--o{ TASKS : "created by"
-```
 
+```
 Source: [Mermaid](https://mermaid.live/edit#pako:eNqlUk1Lw0AQ_SthzmlJUkPN3ooWKR4KTb1IIGyzY7rW7Ib9QGPMf3fbBC2miOAcZuG9-Xgzsy0UkiEQQHXLaalolQnP2c1iu7xbb1bL1Gt75Gjr3TMWZsW8nLNvNDWKi9IrqMFSqiYXtMKe7fqn99tFev-vamesofrwC8NQF4rXhksxCuA6t6pEYUYMs5gz13asRaGDWb5rLoz1kC43fx_LalQXdddU61ep2FeH0R0-PiYT2Q5rJN6e6nMBP9gMBtGeEw3gQ4Wqopy5S5-kZmD26GTAMZRRdcggE52Lo9bItBEFEKMs-mDr40qGvwHkib5oh9ZUAGnhDUh4nUzDcB5GcZBE81k0j31ogASdD-9SuoxgmvR2FcySeBbH0Sn98UT2PZS05X6o3X0C8wvFkA)
 
 
