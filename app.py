@@ -1,8 +1,10 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask import Flask, render_template
+request, redirect, url_for, session, flash
+
 
 if os.path.exists("env.py"):
     import env
@@ -115,7 +117,6 @@ def edit_duty(duty_id):
     if not duty:
         flash("Duty not found.", "danger")
         return redirect(url_for('home'))
-    
     owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})
     if owner and session.get("user") == owner["username"]:
         if request.method == 'POST':
@@ -125,15 +126,13 @@ def edit_duty(duty_id):
                 'description': request.form.get('description'),
                 'completed': completed
             }
-            mongo.db.duties.update_one({"_id": ObjectId(duty_id)}, {"$set": update_data})
+            mongo.db.duties.update_one
+            ({"_id": ObjectId(duty_id)}, {"$set": update_data})
             flash('Duty Updated Successfully', 'success')
             return redirect(url_for('home'))
-        
         return render_template('edit_duty.html', duty=duty)
-    
     flash('Access Denied - Invalid User', 'danger')
     return redirect(url_for('home'))
-
 
 
 @app.route('/delete_duty/<duty_id>', methods=['POST'])
@@ -148,12 +147,15 @@ def delete_duty(duty_id):
     else:
         flash('Access Denied - Invalid User', 'danger')
     return redirect(url_for('home'))
-    
-    
+
+
 @app.route('/complete_duty/<duty_id>', methods=['POST'])
 def complete_duty(duty_id):
-    duty = mongo.db.duties.find_one({"_id": ObjectId(duty_id)})
-    owner = mongo.db.users.find_one({"_id": ObjectId(duty["owner"])})["username"]
+    duty = mongo.db.duties.find_one
+    ({"_id": ObjectId(duty_id)})
+    owner = mongo.db.users.find_one
+    ({"_id": ObjectId(duty["owner"])})["username"]
+
     if session["user"] == owner:
 
         mongo.db.duties.update_one(
@@ -164,6 +166,7 @@ def complete_duty(duty_id):
     else:
         flash('Access Denied - Invalid User', 'danger')
     return redirect(url_for('home'))
+
 
 if __name__ == '__main__':
     app.run(
