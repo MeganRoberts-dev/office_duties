@@ -72,8 +72,8 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 ## Defensive Programming
 
 | Page | User Action | Expected Result | Pass/Fail | Screenshot |
-| --- | --- | --- | --- | --- | --- |
-| Home | | | | | |
+| --- | --- | --- | --- | --- | 
+| Home | | | | | 
 | | Click on Logo | Redirection to Home page | Pass | [screenshot](/static/documentation/CRUD/logo.png)|
 | | Click on Logout| Returns user to login page and logs out of their profile | Pass | [screenshot](/static/documentation/CRUD/logout.png) |
 | | Click on My Duty| Returns user to their profile | Pass | [screenshot](/static/documentation/CRUD/my-duty.png) |
